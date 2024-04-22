@@ -29,9 +29,14 @@ class MainActivity : AppCompatActivity(), GameTask {
     }
 
     override fun closeGame(mScore: Int) {
+
         score.text = "Score : $mScore"
         rootLayout.removeView(mGameView)
         startBtn.visibility = View.VISIBLE
         score.visibility = View.VISIBLE
+
+        // Reset variables for a new game session
+        mGameView = GameView(this, this)
+
     }
 }
